@@ -18,4 +18,3 @@ func main() {
 		handler.PostHandler(funcName, kvMap)
 	}
 }
-

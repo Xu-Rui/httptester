@@ -1,28 +1,28 @@
 package handler
 
 import (
-	"strconv"
 	"math/rand"
-	"time"
+	"strconv"
 	"strings"
+	"time"
 )
 
-func RandomMask(kvmap map[string]string){
-	for k,v := range kvmap{
-		if strings.Contains(k,"time"){
+func RandomMask(kvmap map[string]string) {
+	for k, v := range kvmap {
+		if strings.Contains(k, "time") {
 			break
 		}
-		value,err:=strconv.Atoi(v)
-		if err ==nil{
-			kvmap[k] = strconv.Itoa(value+rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10))
-		}else{
+		value, err := strconv.Atoi(v)
+		if err == nil {
+			kvmap[k] = strconv.Itoa(value + rand.New(rand.NewSource(time.Now().UnixNano())).Intn(10))
+		} else {
 			kvmap[k] = createRandomStr()
 		}
 	}
-	if _,ok := kvmap["mask"];ok{
+	if _, ok := kvmap["mask"]; ok {
 		kvmap["mask"] = "4"
 	}
-	if _,ok := kvmap["uid"];ok{
+	if _, ok := kvmap["uid"]; ok {
 		kvmap["uid"] = "256"
 	}
 }
