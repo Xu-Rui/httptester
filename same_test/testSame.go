@@ -24,6 +24,7 @@ func TestSame(basecase ICase) {
 	for i, v := range res {
 
 		//获取一条测试数据
+		//TODO 写一个结构体转 map 的函数
 		datamap := basecase.Mockdata(v)
 
 		//40次/1s
